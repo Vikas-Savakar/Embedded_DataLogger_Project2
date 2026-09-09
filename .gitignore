@@ -1,0 +1,8 @@
+.pio/
+.vscode/
+build/
+build-*/
+report_screenshots/
+datalog.csv
+*.log
+.DS_Store

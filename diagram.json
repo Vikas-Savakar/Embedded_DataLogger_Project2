@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "author": "Vikas Savakar",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -20, "left": 340, "attrs": { "temperature": "25", "humidity": "50" } },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 160, "left": 340, "attrs": {} },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 300, "left": 340, "attrs": { "initTime": "2026-09-09T21:10:05Z" } },
+    { "type": "wokwi-microsd-card", "id": "sd1", "top": 500, "left": 340, "attrs": {} },
+    { "type": "wokwi-led", "id": "statusLed", "top": 160, "left": 600, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "errorLed", "top": 260, "left": 600, "attrs": { "color": "red" } }
+  ],
+  "connections": [
+    [ "esp:3V3", "dht1:VCC", "red", [] ],
+    [ "esp:GND.1", "dht1:GND", "black", [] ],
+    [ "esp:D4", "dht1:SDA", "green", [] ],
+    [ "esp:3V3", "pot1:VCC", "red", [] ],
+    [ "esp:GND.1", "pot1:GND", "black", [] ],
+    [ "esp:D34", "pot1:SIG", "green", [] ],
+    [ "esp:3V3", "rtc1:5V", "red", [] ],
+    [ "esp:GND.1", "rtc1:GND", "black", [] ],
+    [ "esp:D21", "rtc1:SDA", "blue", [] ],
+    [ "esp:D22", "rtc1:SCL", "blue", [] ],
+    [ "esp:3V3", "sd1:VCC", "red", [] ],
+    [ "esp:GND.1", "sd1:GND", "black", [] ],
+    [ "esp:D5", "sd1:CS", "orange", [] ],
+    [ "esp:D18", "sd1:SCK", "purple", [] ],
+    [ "esp:D19", "sd1:DO", "yellow", [] ],
+    [ "esp:D23", "sd1:DI", "green", [] ],
+    [ "esp:D2", "statusLed:A", "green", [] ],
+    [ "statusLed:C", "esp:GND.1", "black", [] ],
+    [ "esp:D15", "errorLed:A", "red", [] ],
+    [ "errorLed:C", "esp:GND.1", "black", [] ],
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ]
+  ],
+  "serialMonitor": { "display": "always" }
+}
