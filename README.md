@@ -2,6 +2,8 @@
 
 ESP32 firmware that logs temperature, humidity and an analog process value to a microSD card as CSV, with a timestamp from a real-time clock. Built for the Wokwi simulator, no hardware needed.
 
+**[▶ Run it in your browser (Wokwi)](https://wokwi.com/projects/480422512099139585)** — no install needed. Click the green Start button.
+
 ## What it does
 
 - Reads a DHT22 (temperature, humidity) and a potentiometer (ADC) every 5 seconds
@@ -18,7 +20,7 @@ ESP32 firmware that logs temperature, humidity and an analog process value to a 
 | Storage | microSD over SPI (CS 5) |
 | Outputs | Status LED (GPIO2), error LED (GPIO15) |
 
-## Run it
+## Run locally (optional)
 
 1. Install [Arduino IDE](https://www.arduino.cc/en/software) (includes Arduino CLI) and VS Code with the **Wokwi** extension.
 2. In Arduino IDE, install the **esp32** board package and these libraries: *DHT sensor library*, *Adafruit Unified Sensor*, *RTClib*.
