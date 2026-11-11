@@ -20,14 +20,17 @@ ESP32 firmware that logs temperature, humidity and an analog process value to a 
 
 ## Run it
 
-1. Install [VS Code](https://code.visualstudio.com/) with the **PlatformIO** and **Wokwi** extensions.
-2. Clone and build:
+1. Install [Arduino IDE](https://www.arduino.cc/en/software) (includes Arduino CLI) and VS Code with the **Wokwi** extension.
+2. In Arduino IDE, install the **esp32** board package and these libraries: *DHT sensor library*, *Adafruit Unified Sensor*, *RTClib*.
+3. Clone and build the firmware for the simulator:
    ```sh
    git clone https://github.com/Vikas-Savakar/Embedded_DataLogger_Project2.git
    cd Embedded_DataLogger_Project2
-   pio run
+   arduino-cli compile --fqbn esp32:esp32:esp32 --output-dir build-final .
    ```
-3. Open `diagram.json` in VS Code and start the Wokwi simulator.
+4. Open `diagram.json` in VS Code and start the Wokwi simulator.
+
+PlatformIO also works: `pio run` builds the same firmware, for uploading to a real ESP32.
 
 ## Status
 
